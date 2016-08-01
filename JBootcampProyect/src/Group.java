@@ -6,8 +6,8 @@ import java.util.Map;
 public class Group 
 {
 	private Integer idGrupo=0;  //asigno nombre maestro
-	private String nombreMateria="";  //recogo nombre materia
-	private String nombreMaestro="";  //asigno nombre maestro
+	private String nombreMateria=null;  //recogo nombre materia
+	private String nombreMaestro=null;  //asigno nombre maestro
 	
 		//Constructor inicializar valores 
 		Group(int idGrupo,String nombreMateria,String nombreMaestro)
@@ -26,13 +26,17 @@ public class Group
 			
 	      
 		//metodo para agregar lista de materias a mapa con un key (los datos para cada materia se llenan cuando creo objeto en principal por el constructor )
-			public  void agregarMaG()
+			public boolean  agregarMaG()
 		{
-		
+				boolean NoNulo=false;  //esta condicion devuelve true cuando los valores no estan nulos
+				if(this.idGrupo!=0 && !(this.nombreMaestro==null && this.nombreMateria==null))
+				{
+					NoNulo=true;
+				}
 				 Materias.add(this.nombreMateria +" "+ nombreMaestro);   // lleno lista de Materias con variable de nombre de materia y quien imparte
 				 mapaGMaterias.put(idGrupo, Materias);  // lleno mapa de grupomaterias con metodo put, le paso key o numero grupo y asigno lista de las materias que llevara ese grupo  	
 			    printGrupoMaterias(idGrupo, mapaGMaterias);  //llamo metodo pasandole como parametro un id para empatarlo con key , y le paso el mapa entero
-
+			    return NoNulo;
 		}
 		
 	

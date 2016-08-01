@@ -63,8 +63,14 @@ public class Students {
 				System.out.println(listaS);
 			}
 			
-			public static void promedio(){
+			public static int promedio(){  //TotalResult es el promedio , lo uso en junit
+				
+				int TotalResult=promedio/contador;
+				
+					
 				System.out.println("Promedio: " + promedio/contador);
+				
+				return TotalResult;
 			}
 	
 	
